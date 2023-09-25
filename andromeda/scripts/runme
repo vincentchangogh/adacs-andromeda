@@ -1,0 +1,15 @@
+#!
+
+from mymodule import sky_sim 
+import math
+import random 
+
+NSRC = 1000
+
+def main():
+	ra, dec = sky_sim.generate_positions()
+	ras, decs = sky_sim.make_stars(ra, dec, NSRC)
+	sky_sim.save_position_to_file(ras, decs)
+
+if __name__ == "__main__":
+	main() 
