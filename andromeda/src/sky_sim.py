@@ -36,6 +36,7 @@ def make_stars(ra, dec, nsrc=NSRC):
         decs.append(dec + random.uniform(-1, 1))
     return ras, decs
 
+def clip_to_radius():
 
 def save_position_to_file():
     # Write these to a csv file for use by my other program
@@ -52,9 +53,9 @@ if __name__ == "__main__":
     save_position_to_file()
 
 # Plot and save a figure
-# plt.scatter(ras, decs)
-# plt.title("Proof of Plot: Andromeda Location in RA/DEC Degrees")
-# plt.xlabel("RA (deg)")
-# plt.ylabel("DEC (deg)")
-# plt.savefig("proofofplot.png")
-# plt.show()
+plt.scatter(ras, decs)
+plt.title("Proof of Plot: Andromeda Location in RA/DEC Degrees")
+plt.xlabel("RA (deg)")
+plt.ylabel("DEC (deg)")
+plt.savefig("proofofplot.png")
+plt.show()
