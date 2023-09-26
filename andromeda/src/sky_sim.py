@@ -36,7 +36,7 @@ def make_stars(ra, dec, nsrc=NSRC):
         decs.append(dec + random.uniform(-1, 1))
     return ras, decs
 
-def clip_to_radius():
+# def clip_to_radius():
 
 def save_position_to_file():
     # Write these to a csv file for use by my other program
