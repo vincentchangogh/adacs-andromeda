@@ -13,7 +13,7 @@ NSRC = 1_000
 
 def generate_positions():
     # From wikipedia
-    andromeda_ra = '00:41:44.3'
+    andromeda_ra = '00:40:44.3'
     andromeda_dec = '41:15:09'
 
     # Convert to decimal degrees
