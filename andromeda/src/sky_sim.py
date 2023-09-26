@@ -13,8 +13,8 @@ NSRC = 1_000
 
 def generate_positions():
     # From wikipedia
-    andromeda_ra = '00:42:44.3'
-    andromeda_dec = '41:16:09'
+    andromeda_ra = '00:43:44.3'
+    andromeda_dec = '41:17:09'
 
     # Convert to decimal degrees
     degrees, minutes, seconds = andromeda_dec.split(':')
