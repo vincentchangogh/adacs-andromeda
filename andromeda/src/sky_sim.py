@@ -40,7 +40,7 @@ def clip_to_radius(ras, decs, ref_ra, ref_dec, radius):
     Crop an input list of positions so that they lie within radius of
     a reference position
 
-    Parameters
+    Parameters:
     ----------
     ras,decs : list(float)
         The ra and dec in degrees of the data points
@@ -48,7 +48,8 @@ def clip_to_radius(ras, decs, ref_ra, ref_dec, radius):
         The reference location
     radius: float
         The radius in degrees
-    Returns
+
+    Returns:
     -------
     ras, decs : list
         A list of ra and dec coordinates that pass our filter.
