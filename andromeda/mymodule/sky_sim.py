@@ -10,12 +10,40 @@ NSRC: Number of stars to generate
 
 Output: Two arrays, one of right ascensions and the other of declination
 """
-
 import math
 import random
+import argparse
+import logging
 
-NSRC = 1_000
+# Configure logging
+logging.basicConfig(format="%(name)s:%(levelname)s %(message)s", level=logging.DEBUG)
+log = logging.getLogger("<sky_sim>")
 
+# Use the logger
+#log.debug('This is a debug message')
+#log.info('This is an info message')
+#log.warning('This is a warning message')
+#log.error('This is an error message')
+#log.critical('This is a critical message')
+
+NSRC = 1_000_000
+
+def skysim_parser():
+    """
+    Configure the argparse for skysim
+
+    Returns:
+        parser: argparse.ArgumentParser
+        The parser for skysim.
+    """
+    parser = argparse.ArgumentParser(prog='sky_sim', prefix_chars='-')
+    parser.add_argument('--ra', dest = 'ra', type=float, default=None,
+                        help="Central ra (degrees) for the simulation location")
+    parser.add_argument('--dec', dest = 'dec', type=float, default=None,
+                        help="Central dec (degrees) for the simulation location")
+    parser.add_argument('--out', dest='out', type=str, default='catalog.csv',
+                        help="Destination for the output catalog")
+    return parser
 
 def generate_positions():
     """
@@ -30,6 +58,7 @@ def generate_positions():
     # From wikipedia
     andromeda_ra = '00:42:44.3'
     andromeda_dec = '41:16:09'
+    log.debug("Fetching reference coordinates")
 
     # Convert to decimal degrees
     degrees, minutes, seconds = andromeda_dec.split(':')

@@ -8,7 +8,7 @@ import math
 import random
 import matplotlib.pyplot as plt
 
-NSRC = 1_000
+NSRC = 1_000_000
 # From wikipedia
 andromeda_ra = '00:42:44.3'
 andromeda_dec = '41:16:09'
@@ -83,4 +83,4 @@ plt.title("Proof of Plot: Andromeda Location in RA/DEC Degrees")
 plt.xlabel("RA (deg)")
 plt.ylabel("DEC (deg)")
 plt.savefig("proofofplot.png")
-plt.show()
+#plt.show()

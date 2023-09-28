@@ -1,4 +1,4 @@
-#!
+#! /usr/bin/env python
 
 from mymodule import sky_sim 
 import math
@@ -12,4 +12,25 @@ def main():
 	sky_sim.save_position_to_file(ras, decs)
 
 if __name__ == "__main__":
-	main() 
+	parser = sky_sim.skysim_parser()
+	options = parser.parse_args()
+	if None in [options.ra, options.dec]:
+		ra, dec = sky_sim.generate_positions()
+	else:
+		ra = options.ra
+		dec = options.dec
+
+	ras, decs = sky_sim.make_stars(ra, dec)
+	# Write these to a csv file for use by other program
+	with open(options.out, 'w') as f:
+		print(f"{id}, {ra},{dec}", file=f)
+		"""
+		We use len(ras) to make sure that the array is valid; before, 
+		we had NSRC = 1000, but after going through the filter, we have 
+		around 800 points, so to make sure we don't get errors, we use 
+		len(ras), which makes sure that the array is the same as ras' array
+		"""
+		for i in range(len(ras)):
+			print(f"{i:07d}, {ras[i]:12f}, {decs[i]:12f}", file=f)
+	print(f"Wrote {options.out}")
+	#main()
